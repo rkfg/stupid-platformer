@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/Victory.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Main.tres" type="DynamicFont" id=2]
+
+[node name="Victory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.50734
+margin_bottom = 502.493
+custom_fonts/font = ExtResource( 2 )
+text = "Thanks for playing
+Stupid Platformer!
+
+A short game by rkfg
+
+Uses free assets from:
+
+5 Chiptunes (Action) by SubspaceAudio
+
+Jungle asset pack by Jesse M
+
+Magic Cliffs Environment by ansimuz
+
+2D - Chests And Coins by Jan Schneider
+
+Generic Platformer Pack by Estudio Vaca Roxa
+
+Pixel Castle 2D by Szadi art.
+
+Sound effects Pack 2 by Swiss Arcade Game Entertainment
+
+Pixel Adventure 2 by Pixel Frog
+
+Pixel Effects Pack by CodeManu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Label"]
+repeat = true
+playback/repeat = true
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 200.0
+margin_bottom = -50.0
+custom_constants/separation = 100
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="Buttons"]
+margin_right = 150.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="Buttons"]
+margin_left = 250.0
+margin_right = 400.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Restart"

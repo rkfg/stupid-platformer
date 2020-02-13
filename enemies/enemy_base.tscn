@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://enemies/enemy.gd" type="Script" id=2]
+
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
+z_index = -1
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+can_jump = true
+
+[node name="Sprite" type="Sprite" parent="."]
+hframes = 14
+
+[node name="PhysicalBox" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.0

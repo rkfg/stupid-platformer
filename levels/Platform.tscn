@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/level.tres" type="TileSet" id=1]
+[ext_resource path="res://levels/Platform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.1005, 7.53503 )
+
+[node name="Platform" type="Node2D"]
+script = ExtResource( 2 )
+target = NodePath("")
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
+[node name="Platform" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Graphics" type="TileMap" parent="Platform"]
+position = Vector2( -52.1495, -24.133 )
+tile_set = ExtResource( 1 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 536870928, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 1.50246, -2.14639 )
+shape = SubResource( 1 )

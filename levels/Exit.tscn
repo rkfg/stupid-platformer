@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/castle.tres" type="TileSet" id=1]
+[ext_resource path="res://levels/Exit.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.3402, 25.3333 )
+
+[node name="Exit" type="Area2D"]
+z_index = -2
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TileMap_open" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458758, 14, 0, -524286, 13, 0, -262147, 11, 0 )
+
+[node name="TileMap_block" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -262147, 12, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7.72699, -25.9713 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Exit_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Exit_body_exited"]

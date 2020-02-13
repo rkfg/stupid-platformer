@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://levels/jungle.png" type="Texture" id=2]
+[ext_resource path="res://sounds/Powerup 2 - Sound effects Pack 2.wav" type="AudioStream" id=3]
+[ext_resource path="res://levels/6_flamelash_spritesheet.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 54, 32, 26 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.8582, 15.2985 )
+
+[node name="Checkpoint" type="Node2D" groups=[
+"checkpoints",
+]]
+z_index = -1
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )
+hframes = 2
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.347946, 0.115986 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Effect" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+vframes = 7
+hframes = 7
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

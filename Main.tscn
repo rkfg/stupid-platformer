@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://ui/androidui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/Victory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://character/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/StartMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/settings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/fade.gd" type="Script" id=8]
+
+[node name="Main" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( 5 )]
+
+[node name="Victory" parent="UI" instance=ExtResource( 3 )]
+visible = false
+
+[node name="StartMenu" parent="UI" instance=ExtResource( 6 )]
+
+[node name="Settings" parent="UI" instance=ExtResource( 7 )]
+visible = false
+
+[node name="AndroidUI" parent="UI" instance=ExtResource( 2 )]
+
+[node name="Fade" type="ColorRect" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+music = NodePath("../../Music")
+
+[node name="Tween" type="Tween" parent="UI/Fade"]
+
+[node name="level" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+pause_mode = 1
+visible = false
+position = Vector2( 64.7056, 319.072 )
+
+[node name="cam" type="Camera2D" parent="Player"]
+current = true
+process_mode = 0
+limit_left = -11
+limit_bottom = 500
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_screen = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = "Music"

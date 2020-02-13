@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/Main.tres" type="DynamicFont" id=1]
+[ext_resource path="res://items/Key.png" type="Texture" id=2]
+[ext_resource path="res://ui/HUD.gd" type="Script" id=3]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinsBox" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 114.0
+margin_bottom = 54.0
+size_flags_horizontal = 0
+custom_constants/separation = 10
+
+[node name="Coins" type="Label" parent="MarginContainer/CoinsBox"]
+margin_right = 82.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 1 )
+text = "Coins"
+
+[node name="CoinsNum" type="Label" parent="MarginContainer/CoinsBox"]
+margin_left = 92.0
+margin_right = 114.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+
+[node name="KeyBox" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 1004.0
+margin_right = 1004.0
+margin_bottom = 54.0
+size_flags_horizontal = 10
+custom_constants/separation = 10
+
+[node name="KeyImg" type="TextureRect" parent="MarginContainer/KeyBox"]
+visible = false
+margin_right = 50.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 2 )
+stretch_mode = 6

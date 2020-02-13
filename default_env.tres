@@ -1,0 +1,11 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[sub_resource type="ImageTexture" id=1]
+storage = 2
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = SubResource( 1 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 2 )
